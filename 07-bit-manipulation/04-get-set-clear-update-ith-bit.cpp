@@ -33,18 +33,25 @@ void updateIthBit(int &n, int i, int v)
     n = n | mask; // sets the correct bit
 }
 
+void clearLastIBits(int &n, int i)
+{
+    int mask = (-1 << i);
+    n = n & mask;
+}
+
 int main()
 {
-    int num = 13;
-    int i;
-    cin >> i;
+    int num = 15;
+    int i = 2;
+    // cin >> i;
 
     // cout << getIthBit(num, i) << endl;
 
     // setIthBit(num, i);
 
     // clearIthBit(num, i);
-    updateIthBit(num, i, 1);
+    // updateIthBit(num, i, 1);
+    clearLastIBits(num, i);
 
     cout << num;
 
