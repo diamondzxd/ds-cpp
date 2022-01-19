@@ -31,6 +31,16 @@ void updateIthBit(int &n, int i, int v)
     clearIthBit(n, i);
     int mask = (v << i);
     n = n | mask; // sets the correct bit
+
+    // Another solution could be
+    // if(v == 0)
+    // {
+    //     clearIthBit(n, i);
+    // }
+    // else
+    // {
+    //     setIthBit(n, i);
+    // }
 }
 
 void clearLastIBits(int &n, int i)
