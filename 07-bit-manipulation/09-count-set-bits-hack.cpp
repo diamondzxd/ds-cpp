@@ -8,9 +8,9 @@ int countBitsHack(int num)
     int count = 0;
     while (num > 0)
     {
-        int last_bit = (num & 1);
-        count = count + last_bit;
-        num = num >> 1;
+        // remove the last set bit from the current number
+        num = num & (num - 1);
+        count++;
     }
     return count;
 }
