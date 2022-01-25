@@ -1,59 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> findAllOccurences(int k, vector<int> v)
+vector<int> m;
+
+void helper(int key, vector<int> v, int i)
 {
-    int n = v.size();
-    // base case
-    if (n == 0)
+    if (v.size() == i)
     {
-        return -1;
+        return;
     }
 
-    // rec case
-    if (v[0] == k)
+    if (v[i] == key)
     {
-        return 0;
+        m.push_back(i);
     }
-
-    int subIndex = firstOccurrence(v + 1, n - 1, k);
-    if (subIndex != -1)
-    {
-        return subIndex + 1;
-    }
-    return -1;
+    helper(key, v, i + 1);
+    return;
 }
 
-#include <iostream>
-using namespace std;
-
-int firstOccurrence(int arr[], int n, int key)
+vector<int> findAllOccurences(int k, vector<int> v)
 {
-    // base case
-    if (n == 0)
-    {
-        return -1;
-    }
 
-    // rec case
-    if (arr[0] == key)
-    {
-        return 0;
-    }
-
-    int subIndex = firstOccurrence(arr + 1, n - 1, key);
-    if (subIndex != -1)
-    {
-        return subIndex + 1;
-    }
-    return -1;
+    m.clear();
+    helper(k, v, 0);
+    return m;
 }
 
 int main()
 {
-    vector<int> arr = {1, 2, 4, 5, 6, 6, 7, 3, 6, 3, 6, 3, 6, 76};
-    int n = sizeof(arr) / sizeof(int);
-    int key = 7;
-
-    cout << firstOccurrence(arr, n, key);
+    return 0;
 }
