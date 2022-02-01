@@ -19,7 +19,8 @@ public:
 
     Product(int id, char name[], int mrp, int selling_price)
     {
-        id = id;
+        this->mrp = mrp;
+        this->id = id;
     }
 
     // Setters
